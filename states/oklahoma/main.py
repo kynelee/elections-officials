@@ -13,12 +13,7 @@ if __name__ == "__main__":
 
     with open("swag.pdf", 'rb') as swag:
         raw = parser.from_file(swag)
-        print(raw['content'])
-        pdf_reader = PyPDF2.PdfFileReader(swag)
-
-        for page_num in tqdm(range(pdf_reader.numPages)):
-            print(page_num)
-
-            text = pdf_reader.getPage(page_num).extractText()
-            print(text)
+        for line in raw['content'].split("\n"):
+            split_line = line.split(" ")
+            print(split_line)
 
